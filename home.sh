@@ -11,7 +11,7 @@ networksetup -switchtolocation $HOME_LOCATION
 echo "\nSwitched to '$HOME_LOCATION' location"
 
 echo "Turning proxy off on '$NETWORK_ADAPTER' adapter."
-echo "Refreshing every $REFRESH_RATE_SECONDS seconds..."
+echo "Repeating every $REFRESH_RATE_SECONDS seconds..."
 
 while true
 do
