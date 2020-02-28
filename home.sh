@@ -1,14 +1,21 @@
 #!/bin/sh
 
-networksetup -switchtolocation Home
-echo "Switched to Home location."
+NETWORK_ADAPTER="Wi-Fi"
+HOME_LOCATION="Home"
 
+echo "Looking for network adapter named: $NETWORK_ADAPTER"
+
+echo "Switching to '$HOME_LOCATION' location"
+networksetup -switchtolocation $HOME_LOCATION
+echo "\nSwitched to '$HOME_LOCATION' location"
+
+echo "Turning proxy off on '$NETWORK_ADAPTER' adapter"
 while true
 do
-  isProxyEnabled=`networksetup -getautoproxyurl "Wi-Fi" | tail -c -3`
+  isProxyEnabled=`networksetup -getautoproxyurl "$NETWORK_ADAPTER" | tail -c -3`
   if [ "$isProxyEnabled" != "No" ]; then
     networksetup -setautoproxystate "Wi-Fi" off
-    echo "Turned off proxy on 'Wi-Fi' adapter."
+    echo "Turned off proxy on '$NETWORK_ADAPTER' adapter"
   fi
   sleep 30
 done
