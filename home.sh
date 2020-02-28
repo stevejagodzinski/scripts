@@ -7,5 +7,5 @@ while true
 do
   networksetup -setautoproxystate "Wi-Fi" off
   echo "Turned off proxy on 'Wi-Fi' adapter."
-  sleep 10
+  sleep 30
 done
