@@ -15,11 +15,11 @@ echo "Refreshing every $REFRESH_RATE_SECONDS seconds..."
 
 while true
 do
-  echo "enhance..."
   isProxyEnabled=`networksetup -getautoproxyurl "$NETWORK_ADAPTER" | tail -c -3`
   if [ "$isProxyEnabled" != "No" ]; then
     networksetup -setautoproxystate "Wi-Fi" off
     echo "Turned off proxy on '$NETWORK_ADAPTER' adapter"
   fi
   sleep $REFRESH_RATE_SECONDS
+  echo "enhance..."
 done
